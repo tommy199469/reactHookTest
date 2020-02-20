@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
-import Modal from "./Components/Modal";
 import Modali, { useModali } from 'modali';
 import './App.css';
 
@@ -19,6 +18,7 @@ const App = () => {
       <Button onClick={openModal} >Open</Button>
       <Modali.Modal {...modalConfig}>
         <div className="container">
+
         </div>
       </Modali.Modal>
     </div>
