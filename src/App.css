@@ -2,6 +2,10 @@
   padding: 20px;
 }
 
+.resultContainer {
+  margin-bottom: 20px;
+}
+
 .container {
   height: 100%;
   width: 100%;

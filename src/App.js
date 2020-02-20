@@ -22,7 +22,6 @@ const App = () => {
   const countRedux = useSelector(state => state.count , shallowEqual);
   const dispatch = useDispatch();
 
-
   const handleCount = (num)=> ()=>{
     num >= 1 && num <= 10 && dispatch({
       type: 'UPDATE_COUNT',
@@ -31,17 +30,27 @@ const App = () => {
     num <= 5 ? setBlockColor('yellow') : setBlockColor('red')
   }
 
+
+  const handleClose  = () =>{
+    setTimeout(() => {
+      openModal()
+      setCount(countRedux)
+    }, 3000);
+  }
+
   return (
     <div className={"App"}>
+      <div className="resultContainer">result : {count}</div>
       <Button onClick={openModal} >Open</Button>
       <Modali.Modal {...modalConfig}>
         <div className="container">
           <div style={{alignSelf:"center" , padding:10 , marginBottom : 10, backgroundColor: blockColor }} />
-          <div style={{display:'flex' , flexDirection : "row"}}>
+          <div style={{display:'flex' , flexDirection : "row" , marginBottom :10 }}>
             <button className="actionBtn" onClick={handleCount(countRedux-1)}>-</button>
             <div style={{paddingLeft: 20 , paddingRight: 20 , border :'1px solid black' }}>{countRedux}</div>
             <button className="actionBtn" onClick={handleCount(countRedux+1)}>+</button>
           </div>
+          <Button onClick={handleClose} >Confirm</Button>
         </div>
       </Modali.Modal>
     </div>
