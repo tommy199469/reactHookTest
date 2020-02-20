@@ -10,3 +10,10 @@
   justify-content: center;
   align-items: center;
 }
+
+.actionBtn {
+  outline: none;
+  border: 0px; 
+  box-sizing: none; 
+  background-color: transparent; 
+}

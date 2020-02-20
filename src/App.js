@@ -5,7 +5,8 @@ import './App.css';
 
 const App = () => {
 
-  const [count , setCount] = useState()
+  const [count , setCount] = useState(1)
+
   const [modalConfig, openModal] = useModali({
     animated: true,
     large: true,
@@ -13,12 +14,21 @@ const App = () => {
     centered: true
   });
 
+  const handleCount = (num)=> ()=>{
+    num >= 1 && num <= 10 && setCount(num)
+  }
+
+
   return (
     <div className={"App"}>
       <Button onClick={openModal} >Open</Button>
       <Modali.Modal {...modalConfig}>
         <div className="container">
-
+          <div style={{display:'flex' , flexDirection : "row"}}>
+            <button className="actionBtn" onClick={handleCount(count-1)}>-</button>
+            <div style={{paddingLeft: 20 , paddingRight: 20 , border :'1px solid black' }}>{count}</div>
+            <button className="actionBtn" onClick={handleCount(count+1)}>+</button>
+          </div>
         </div>
       </Modali.Modal>
     </div>
